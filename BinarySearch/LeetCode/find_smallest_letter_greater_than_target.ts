@@ -12,3 +12,17 @@
     Explanation: The smallest character that is lexicographically greater than 'a' in letters is 'c'
  */
 
+function findSmallestLetterGreaterThanTarget(letters: string[], target:string): string {
+   let start = 0;
+   let end = letters.length - 1;
+   while(start <= end) {
+      const mid = start + Math.floor((end-start)/2);
+      if (letters[mid] < target) {
+         start = mid + 1;
+      } else {
+         end = mid - 1;
+      }
+   }
+   return letters[start%letters.length];
+
+}
