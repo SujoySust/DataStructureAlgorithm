@@ -17,12 +17,16 @@ function findSmallestLetterGreaterThanTarget(letters: string[], target:string): 
    let end = letters.length - 1;
    while(start <= end) {
       const mid = start + Math.floor((end-start)/2);
-      if (letters[mid] < target) {
-         start = mid + 1;
-      } else {
+      if (target  < letters[mid]) {
          end = mid - 1;
+      } else {
+         start = mid + 1;
       }
    }
    return letters[start%letters.length];
-
 }
+
+const letters = ["c","f","j"];
+const target = "c";
+
+console.log(findSmallestLetterGreaterThanTarget(letters, target));
