@@ -1,3 +1,9 @@
+/**
+ * Missing number
+ * https://leetcode.com/problems/missing-number/
+ * @param arr 
+ * @returns 
+ */
 function missingNumber(arr: Array<number>): number {
   let i = 0;
   while (i <= arr.length) {
@@ -9,7 +15,7 @@ function missingNumber(arr: Array<number>): number {
     }
   }
 
-  for (let j = 0; j <= i; i++) {
+  for (let j = 0; j <= i; j++) {
     if (arr[j] !== j) {
       return i;
     }
