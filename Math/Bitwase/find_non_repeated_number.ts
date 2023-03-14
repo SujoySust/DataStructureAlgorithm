@@ -2,7 +2,7 @@
  * Find a number that is not repeated in given array
  * arr = [2,3,4,1,2,1,3,6,4];
  * answer is 6
- * Sol: XOR all the number
+ * Sol: XOR of two same number is zero. So XOR all the number
  */
 
 function findNonRepeatedNumber(arr: Array<number>) {
