@@ -21,4 +21,20 @@ function checkPowerOfTwo(num: number) {
     }
 }
 
-checkPowerOfTwo(16);
+/**
+ * Power of two has only 1 and as many zeros (ex: 1000000)
+ * Take n-1 = 01111111
+ * If n & (n-1) == 0 then it will be the power of two
+ * @param num 
+ */
+
+function checkPowerOfTwoOtherApp(num: number) {
+    const result = num &(num-1);
+    if (result == 0) {
+        console.log('Yes')
+    } else {
+        console.log('No');    
+    }
+}
+
+checkPowerOfTwoOtherApp(16);
