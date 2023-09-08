@@ -1,0 +1,10 @@
+Pros and Cons of Arrays
+=======================================
+Pros:
+    1. Fast lookups
+    2. Fast push/pop
+    3. Ordered
+Cons: 
+    1. Slow insert
+    2. Slow deletes
+    3. Fixed size (if static)
