@@ -61,10 +61,24 @@ class DoublyLinkedList {
         }
     }
 
+    remove(index:number) {
+        if(index < 0 || index > this.length) return;
+        const parrent = this.findValueByIndex(index - 1);
+        const current = parrent.next;
+        const child = current?.next;
+        if (child) {
+            parrent.next = child;
+            child.prev = parrent;
+        } else {
+            parrent.next = null;
+        }
+    }
+
     findValueByIndex(index: number) {
         let count = 0;
         let currentNode: DoublyNodeClass = this.head;
-        while (count <= index && currentNode.next) {
+        if (index < 0) return currentNode;
+        while (count != index && currentNode.next) {
             currentNode = currentNode.next;
             count ++;
         }
@@ -77,4 +91,5 @@ myDubLinkList.append(5);
 myDubLinkList.append(15);
 myDubLinkList.prepend(2);
 myDubLinkList.insert(2, 22);
+myDubLinkList.remove(3);
 console.log(myDubLinkList.printList());

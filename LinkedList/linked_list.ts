@@ -71,6 +71,25 @@ class LinkedList {
         leader.next = unwantedNode?.next || null;
     }
 
+    reverse(): number[] {
+        const arr: number [] = [];
+        if (!this.head.next) {
+            return arr;
+        }
+        let first = this.head;
+        this.tail = this.head;
+        let second = first.next;
+        while(second) {
+            const temp = second.next;
+            second.next = first;
+            first = second;
+            second = temp;
+        }
+        this.head.next = null;
+        this.head = first;
+        return arr;
+    }
+
     traverseToIndex(index: number): NodeClass{
         let count = 0;
         let currentNode = this.head;
@@ -89,4 +108,6 @@ myLinkedList.prepend(2);
 myLinkedList.insert(2, 33);
 myLinkedList.insert(3, 66);
 myLinkedList.remove(3);
+console.log(myLinkedList.printList());
+myLinkedList.reverse();
 console.log(myLinkedList.printList());
