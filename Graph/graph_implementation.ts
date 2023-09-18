@@ -1,13 +1,19 @@
+interface AdjInterface {
+    [key: string]: string[]; // '0' is the key, and its associated value is an array of strings
+}
+  
 class Graph {
     private numOfNodes = 0;
-    private adjacentList = {};
+    private adjacentList: AdjInterface = {};
 
     addVertex(node: string) {
-
+        this.adjacentList[node] = [];
+        this.numOfNodes++;
     }
 
     addEdge(node1: string, node2: string) {
-
+        this.adjacentList[node1].push(node2);
+        this.adjacentList[node2].push(node1);
     }
 
     showConnections() {
