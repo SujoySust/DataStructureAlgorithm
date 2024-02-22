@@ -1,4 +1,4 @@
-function sortArrayOfOs1s2s (nums: number[]) {
+function sortArrayOfOs1s2sSol1 (nums: number[]) {
     let zeros = 0;
     let ones = 0;
     let twos = 0;
@@ -29,7 +29,38 @@ function sortArrayOfOs1s2s (nums: number[]) {
     return nums;
 }
 
+function sortArrayOfOs1s2sSol2(nums: number[]) {
+    let low = 0;
+    let mid = 0; 
+    let high = nums.length - 1;
+    while (mid <= high) {
+        if(nums[mid] == 0) {
+            const temp = nums[low];
+            nums[low] = nums[mid];
+            nums[mid] = temp;
+            low ++;
+            mid ++;
+        } else if (nums[mid] == 1) {
+            mid ++;
+        } else {
+            const temp = nums[mid];
+            nums[mid] = nums[high];
+            nums[high] = temp;
+            high --;
+        }
+    }
+    return nums;
+}
+
 {{
-    const nums = sortArrayOfOs1s2s([0,1,2,0,1,2,1,2,0,0,0,1]); 
-    console.log(nums)
+    // const case1 = sortArrayOfOs1s2sSol1([2,0,2,1,1,0]); 
+    // const case2 = sortArrayOfOs1s2sSol1([2,0,1]); 
+
+    // const case3 = sortArrayOfOs1s2sSol2([2,0,2,1,1,0]); 
+    const case4 = sortArrayOfOs1s2sSol2([2,0,1]); 
+
+    // console.log(case1);
+    // console.log(case2);
+    // console.log(case3);
+    console.log(case4);
 }}

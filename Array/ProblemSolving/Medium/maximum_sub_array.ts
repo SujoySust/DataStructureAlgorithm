@@ -45,7 +45,9 @@ function maximumSubArraySolution3 (nums: number[], k: number): number {
             maxLen = Math.max(maxLen, i+1);
         }
 
+        sum
         const rem = sum - k;
+        rem
         if (preSumMap.has(rem)) {
             let len = i - preSumMap.get(rem);
             maxLen = Math.max(maxLen, len);
